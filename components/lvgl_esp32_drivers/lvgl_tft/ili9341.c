@@ -115,7 +115,7 @@ void ili9341_init(void)
 	ili9341_enable_backlight(true);
 
 #if ILI9341_INVERT_DISPLAY
-	uint8_t data[] = {0x68};
+	uint8_t data[] = {0x8};
 	// this same command also sets rotation (portrait/landscape) and inverts colors.
 	// https://gist.github.com/motters/38a26a66020f674b6389063932048e4c#file-ili9844_defines-h-L24
 	ili9341_send_cmd(0x36);
@@ -194,4 +194,3 @@ static void ili9341_send_color(void * data, uint16_t length)
     gpio_set_level(ILI9341_DC, 1);   /*Data mode*/
     disp_spi_send_colors(data, length);
 }
-
